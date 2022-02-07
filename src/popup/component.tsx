@@ -8,8 +8,24 @@ import css from "./styles.module.css";
 
 // Scripts to execute in current tab
 const toggleAllScript = `document.querySelectorAll(".btn-octicon.js-details-target").forEach(el => el.click())`;
-const viewAllScript = `document.querySelectorAll(".js-reviewed-checkbox").forEach(el => el.click())`;
-const viewAllUnviewedScript = `document.querySelectorAll(".js-reviewed-checkbox.js-reviewed-file").forEach(el => el.click())`;
+const toggleAllViewed = `document.querySelectorAll(".js-reviewed-checkbox").forEach(el => el.click())`;
+
+// Set "Not Expanded" -> "Expanded"
+const setNotExpandedToExpanded = `document.querySelectorAll('button.btn-octicon.js-details-target[aria-label="Toggle diff contents"][aria-expanded="false"]').forEach(el => el.click())`;
+
+// Set "Expanded" -> "Not Expanded"
+const setExpandedToNotExpanded = `document.querySelectorAll('button.btn-octicon.js-details-target[aria-label="Toggle diff contents"][aria-expanded="true"]').forEach(el => el.click())`;
+
+// Set "Viewed" -> "Unviewed"
+const setViewedToUnviewed = `document.querySelectorAll(".js-reviewed-file input").forEach(el => el.click())`;
+
+// Set "Unviewed" -> "Viewed"
+const setUnviewedToViewed = `document.querySelectorAll(".js-reviewed-toggle:not(.js-reviewed-file) input").forEach(el => el.click())`;
+
+// const setViewedToUnviewed = `document.querySelectorAll(".js-reviewed-file.color-fg-muted input").forEach(el => el.click())`; // WORKING
+// const setAllViewed = `document.querySelectorAll(".js-reviewed-file.color-fg-muted input").forEach(el => el.click())`; // WORKING
+
+// js-reviewed-toggle .color-fg-muted.color-border-muted
 
 /**
  * Executes a string of Javascript on the current tab
@@ -50,18 +66,21 @@ export function Popup() {
     // Renders the component tree
     return (
         <div className={css.popupContainer}>
-            <div className="mx-4 my-4">
+            <div className="mx-4 my-4 w-full">
                 <Hello />
                 <hr />
                 <Scroller
                     toggleAll={() => {
-                        executeScript(toggleAllScript);
+                        executeScript(setExpandedToNotExpanded);
                     }}
                     markAllViewed={() => {
-                        executeScript(viewAllScript);
+                        executeScript(setNotExpandedToExpanded);
                     }}
-                    markAllUnviewedViewed={() => {
-                        executeScript(viewAllUnviewedScript);
+                    setViewedToUnviewed={() => {
+                        executeScript(setViewedToUnviewed);
+                    }}
+                    setUnviewedToViewed={() => {
+                        executeScript(setUnviewedToViewed);
                     }}
                 />
             </div>

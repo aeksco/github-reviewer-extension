@@ -8,7 +8,8 @@ it("component renders", () => {
             <Scroller
                 toggleAll={jest.fn()}
                 markAllViewed={jest.fn()}
-                markAllUnviewedViewed={jest.fn()}
+                setViewedToUnviewed={jest.fn()}
+                setUnviewedToViewed={jest.fn()}
             />,
         )
         .toJSON();

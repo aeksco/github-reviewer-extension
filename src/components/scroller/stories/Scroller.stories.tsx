@@ -12,7 +12,8 @@ export default {
     args: {
         toggleAll: action("toggle-all"),
         markAllViewed: action("toggle-all"),
-        markAllUnviewedViewed: action("toggle-all"),
+        setViewedToUnviewed: action("setViewedToUnviewed"),
+        setUnviewedToViewed: action("setUnviewedToViewed"),
     },
 } as ComponentMeta<typeof Scroller>;
 

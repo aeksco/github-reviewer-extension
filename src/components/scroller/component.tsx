@@ -13,30 +13,38 @@ import css from "./styles.module.css";
 export function Scroller(props: {
     toggleAll: () => void;
     markAllViewed: () => void;
-    markAllUnviewedViewed: () => void;
+    setViewedToUnviewed: () => void;
+    setUnviewedToViewed: () => void;
 }) {
     return (
-        <div className="grid gap-3 grid-cols-2 mt-3 w-full">
+        <div className="grid gap-3 grid-cols-1 mt-3 w-full">
             <button
                 className={css.btn}
                 data-testid="scroll-to-top"
                 onClick={() => props.toggleAll()}
             >
-                Toggle All Files
+                Collapse All
             </button>
             <button
                 className={css.btn}
                 data-testid="mark-all-viewed"
                 onClick={() => props.markAllViewed()}
             >
-                Toggle All Viewed
+                Expand All
             </button>
             <button
                 className={css.btn}
                 data-testid="mark-all-viewed"
-                onClick={() => props.markAllUnviewedViewed()}
+                onClick={() => props.setViewedToUnviewed()}
             >
-                Mark All Unviewed
+                Set "Viewed" to "Unviewed"
+            </button>
+            <button
+                className={css.btn}
+                data-testid="mark-all-unviewed"
+                onClick={() => props.setUnviewedToViewed()}
+            >
+                Set "Unviewed" to "Viewed"
             </button>
         </div>
     );

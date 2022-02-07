@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Chrome Extension Starter",
-    "description": "A Chrome Extension starter kit",
+    "name": "GitHub Reviewer Extension",
+    "description": "A Web Extension for GitHub reviews",
     "version": "1.0.0",
     "browser_action": {
         "default_icon": "icon-16.png",

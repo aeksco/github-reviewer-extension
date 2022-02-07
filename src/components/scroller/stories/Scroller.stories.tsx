@@ -10,8 +10,9 @@ export default {
     title: "Components/Scroller",
     component: Scroller,
     args: {
-        onClickScrollTop: action("click-scroll-top"),
-        onClickScrollBottom: action("click-scroll-bottom"),
+        toggleAll: action("toggle-all"),
+        markAllViewed: action("toggle-all"),
+        markAllUnviewedViewed: action("toggle-all"),
     },
 } as ComponentMeta<typeof Scroller>;
 

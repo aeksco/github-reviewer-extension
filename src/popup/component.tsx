@@ -7,8 +7,9 @@ import css from "./styles.module.css";
 // // // //
 
 // Scripts to execute in current tab
-const scrollToTopScript = `window.scroll(0,0)`;
-const scrollToBottomScript = `window.scroll(0,9999999)`;
+const toggleAllScript = `document.querySelectorAll(".btn-octicon.js-details-target").forEach(el => el.click())`;
+const viewAllScript = `document.querySelectorAll(".js-reviewed-checkbox").forEach(el => el.click())`;
+const viewAllUnviewedScript = `document.querySelectorAll(".js-reviewed-checkbox.js-reviewed-file").forEach(el => el.click())`;
 
 /**
  * Executes a string of Javascript on the current tab
@@ -53,11 +54,14 @@ export function Popup() {
                 <Hello />
                 <hr />
                 <Scroller
-                    onClickScrollTop={() => {
-                        executeScript(scrollToTopScript);
+                    toggleAll={() => {
+                        executeScript(toggleAllScript);
                     }}
-                    onClickScrollBottom={() => {
-                        executeScript(scrollToBottomScript);
+                    markAllViewed={() => {
+                        executeScript(viewAllScript);
+                    }}
+                    markAllUnviewedViewed={() => {
+                        executeScript(viewAllUnviewedScript);
                     }}
                 />
             </div>

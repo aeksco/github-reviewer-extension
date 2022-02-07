@@ -6,8 +6,9 @@ it("component renders", () => {
     const tree = renderer
         .create(
             <Scroller
-                onClickScrollTop={jest.fn()}
-                onClickScrollBottom={jest.fn()}
+                toggleAll={jest.fn()}
+                markAllViewed={jest.fn()}
+                markAllUnviewedViewed={jest.fn()}
             />,
         )
         .toJSON();
